@@ -1,7 +1,6 @@
 package com.scm.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -11,6 +10,8 @@ import lombok.*;
 @Setter
 @Getter
 public class SocialLink {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String link;
     private String title;

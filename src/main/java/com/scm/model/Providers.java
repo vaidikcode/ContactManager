@@ -1,5 +1,5 @@
 package com.scm.model;
 
-public enum Provider {
+public enum Providers {
     SELF,GOOGLE,GITHUB
 }

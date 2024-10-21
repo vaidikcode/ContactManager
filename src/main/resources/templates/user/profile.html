@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::#title},~{})}">
+<head>
+    <title id="title">home</title>   
+</head>
+<body> 
+    <div id="content">
+        <div data-th-if="${loggedInUser}">
+            <div data-th-replace="~{user/user_sidebar :: sidebar}"></div>
+            </div>
+        <div class="sm:pl-64 pt-20"><p>This is user profile page</p></div>
+    </div>  
+</body>
+</html>

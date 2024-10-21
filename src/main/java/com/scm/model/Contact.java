@@ -1,11 +1,17 @@
 package com.scm.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Getter
+@Setter
 public class Contact {
 
     @Id
@@ -15,7 +21,7 @@ public class Contact {
     private String phoneNumber;
     private String address;
     private String picture;
-    @Column(length = 10000)
+    @Column(length = 1000)
     private String description;
     private boolean favorite = false;
     private String websiteLink;

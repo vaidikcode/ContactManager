@@ -9,10 +9,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="dark:bg-gray-900 dark:text-white">
-    <div data-th-replace="navbar :: navbar"></div>
-    <div>
+    <div data-th-if="${loggedInUser}">
+        <div data-th-replace="~{user/user_navbar :: user_navbar}"></div>
+        </div>
+    <div data-th-unless="${loggedInUser}">
+        <div data-th-replace="~{navbar :: navbar}"></div>
+        </div>
+    <div >
     <section th:replace="${content}"></section>
     </div>
+    <!--Twitter handle bar here-->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <script data-th-src="@{'/script/script.js'}"></script>
     <th:block data-th-replace="${script}"></th:block>

@@ -1,7 +1,7 @@
 console.log("script loaded");
 
 let currentTheme=getTheme();
-changeTheme();
+changeTheme()
 
 
 //to change the current theme which is set  to light

@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" th:replace="~{base :: parent(~{::#content},~{::#title},~{})}">
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title id="title">login</title>   
 </head>
 <body> 
-    <div id="content">
-        <p>This is login page</p>
-    </div>  
+        <div id="content" style="margin-top:85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;">
+    <a  class="block max-w-sm p-6 border-t-4 border-indigo-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"> 
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">login</h5>
+    <p style="margin-bottom: 5px;" class="font-normal text-gray-700 dark:text-gray-400">Manage contacts using Contact Manager...</p>
+    <div class="text-gray-500 my-5 text-center" data-th-if="${param.error}">Invalid username and password</div>
+    <div class="text-green-400 my-5 text-center" data-th-if="${param.logout}">You have been logged out</div>
+    <form data-th-action="@{'/authenticate'}" method="post">
+          <div class="mb-1">
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+            <input name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
+            <!-- <p data-th-if="${#fields.hasErrors('email')}" data-th-errors="*{email}" class="text-red-600 px-1 py-2"></p> -->
+          </div>
+          <div class="mb-1">
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+            <input name="password" type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
+            <!-- <p data-th-if="${#fields.hasErrors('password')}" data-th-errors="*{password}" class="text-red-600 px-1 py-2"></p> -->
+          </div>
+          <div class="mb-1 flex justify-center space-x-6">
+            <button type="submit" style="margin-top: 10px;" class="text-white bg-gray-800 hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
+            <button type="reset" style="margin-top: 10px;" class="text-white bg-gray-800 hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Reset</button>
+            </div> 
+        </form>
+    </a> 
+    <div>
+      <a data-th-href="@{'/oauth2/authorization/google'}"><button class="text-white bg-gray-800 hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-6 py-3 mt-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i style="margin-right: 5px;" class="fa-brands fa-google"></i>Continue with Google</button></a>
+    </div>
+    <div>
+      <a data-th-href="@{'/oauth2/authorization/github'}"><button class="text-white bg-gray-800 hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-6 py-3 mt-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i style="margin-right: 5px;"  class="fab fa-github"></i>Continue with Github</button></a>
+    </div> 
+    </div>
 </body>
 </html>
